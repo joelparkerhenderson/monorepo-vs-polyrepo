@@ -76,7 +76,7 @@ Key similarities between monorepo and polyrepo:
 
 ### Key differences
 
-Key differences between monorepo and polyrepo, summarized from many proponents:
+Key differences between monorepo and polyrepo, summarized from many proponents, and intending to highlight typical differences betwee a typical monorepo and a typical polyrepo.
 
 <table>
   <thead>
@@ -87,16 +87,16 @@ Key differences between monorepo and polyrepo, summarized from many proponents:
   </thead>
   <tbody>
     <tr>
+      <td>Typically a repo contains multiple projects, programming languages, packaging processes, etc.</td>
+      <td>Typically a repo contains one project, programming language, packaging process, etc.</td>
+    </tr>
+    <tr>
       <td>Manages projects in one repository, together, holistically.</td>
       <td>Manages projects in multiple repositories, separately, independently.</td>
     </tr>
-    <tr>
-      <td>A repo contains multiple projects, programming languages, packaging processes, etc.</td>
-      <td>A repo contains one project, programming language, packaging process, etc.</td>
-    </tr>
     <tr>      
-      <td>Ability to work in all projects simultaneously, all within the monorepo. </td>
-      <td>Ability to work in each project one at a time, each in its own repo.</td>
+      <td>Enables working in all projects simultaneously, all within the monorepo. </td>
+      <td>Enables working in each project one at a time, each in its own repo.</td>
     </tr>
     <tr>      
       <td>Ensures changes affect all the projects, can be tracked together, tested together, and released together.</td>
