@@ -10,8 +10,8 @@ Contents:
   * [Key differences](#key-differences)
 * [Monorepo scaling](#monorepo-scaling)
   * [Monorepo scalling problem](#monorepo-scalling-problem)
-* [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
-* [Monorepo scaling metrics](#monorepo-scaling-metrics)
+  * [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
+  * [Monorepo scaling metrics](#monorepo-scaling-metrics)
 * [Opinions](#opinions)
   * [If components need to release together, then use a monorepo](#if-components-need-to-release-together-then-use-a-monorepo)
   * [If components need to share common code, then use a monorepo](#if-components-need-to-share-common-code-then-use-a-monorepo)
@@ -21,7 +21,7 @@ Contents:
   * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
   * [We don't use a monorepo, and it's hell](#we-don-t-use-a-monorepo-and-it-s-hell)
   * [Splitting one repo is easier than combining multiple repos](#splitting-one-repo-is-easier-than-combining-multiple-repos)
-  * [Splitting may be too fine.](#splitting-may-be-too-fine)
+  * [Splitting may be too fine](#splitting-may-be-too-fine)
   * [OctoLinker really helps when browsing a polyrepo on Github](#octolinker-really-helps-when-browsing-a-polyrepo-on-github)
   * [It's a social problem in how you manage boundaries](#it-s-a-social-problem-in-how-you-manage-boundaries)
   * [Challenges of monorepo and polyrepo](#challenges-of-monorepo-and-polyrepo)
@@ -154,7 +154,7 @@ Monorepo scaling becomes a problem when a typical developer can't work well with
   * A monorepo may grow so large contain so many projects that it takes too much mental effort to work across projects, such as for searching, editing, and isolating changes.
 
 
-## Monorepo scaling mitigations
+### Monorepo scaling mitigations
 
 Monorepo scaling can be improved by:
 
@@ -163,7 +163,7 @@ Monorepo scaling can be improved by:
   * Sophisticated source code indexing/searching/discovery capabilities as a service. This is because a typical developer is not going to have all the source code locallly, in a searchable state, using vanilla tooling. 
 
 
-## Monorepo scaling metrics
+### Monorepo scaling metrics
 
 Monorepo scaling seems to become an issue, in practice, at approximately these kinds of metrics:
 
@@ -179,6 +179,8 @@ Monorepo scaling seems to become an issue, in practice, at approximately these k
 
 
 ## Opinions
+
+These opinions are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity. If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
 
 
 ### If components need to release together, then use a monorepo
@@ -243,7 +245,7 @@ So start out with a monorepo.
 Only split a monorepo into multiple smaller repositories when you're clear that it really makes sense.
 
 
-### Splitting may be too fine.
+### Splitting may be too fine
 
 My problem with polyrepo is that often organizations end up splitting things too finely, and now I'm unable to make a single commit to introduce a feature because my changes have to live across several repositories. 
   
