@@ -9,7 +9,7 @@ Contents:
   * [Key similarities](#key-similarities)
   * [Key differences](#key-differences)
 * [Monorepo scaling](#monorepo-scaling)
-  * [Monorepo scalling problem](#monorepo-scalling-problem)
+  * [Monorepo scaling problem](#monorepo-scaling-problem)
   * [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
   * [Monorepo scaling metrics](#monorepo-scaling-metrics)
 * [Opinions](#opinions)
@@ -145,7 +145,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
 ## Monorepo scaling
 
 
-### Monorepo scalling problem
+### Monorepo scaling problem
 
 Monorepo scaling becomes a problem when a typical developer can't work well with the code by using typical tools such as vanilla git.
 
