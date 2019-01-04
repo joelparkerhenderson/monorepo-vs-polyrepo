@@ -1,5 +1,9 @@
 # Monorepo vs. polyrepo
 
+<img src="README.png" alt="Objective" style="width: 100%;"/>
+
+Monorepo means using one repository that contains many projects, and polyrepo means using a repositoriy per project. This page discusses the similarities and differences, and has advice and opinions on both.
+
 Contents:
 
 * [Introduction](#introduction)
