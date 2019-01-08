@@ -241,7 +241,7 @@ Monorepo scaling seems to become an issue, in practice, at approximately these k
 
 ### If components need to release together, then use a monorepo
 
-I'd probably go further and say that if you just think components might need to release together then they should go in the same repo, because you can in fact pretty easily manage projects with different release schedules from the same repo if you really need to.
+If you think components might need to release together then they should go in the same repo, because you can in fact pretty easily manage projects with different release schedules from the same repo if you really need to.
 
 On the other hand if you've got a whole bunch of components in different repos which need to release together it suddenly becomes a real pain.
 
