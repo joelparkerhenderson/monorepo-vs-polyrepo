@@ -304,6 +304,18 @@ Polyrepo involves mostly challenges with coordination.
 Bazel requires you to explicitly declare your dependencies for each 'target' you want to build. These dependencies can be within the same Bazel workspace, or imported at build time via say git - there's no need to have all the files directly in your repo. The nice thing is you can declare the commit id or file hash for the dependency you're importing to make sure you're getting what you expect, and keep Bazel's reproducibility properties.
 
 
+### On-premise applications or desktop applications
+
+If you're creating on-premise applications or desktop applications (things requiring long lived release branches), the discussion is totally different.
+
+I find that shipped software actually operates better in a normal, branched monorepo. You just branch the whole thing. The alternative is several repos and using a package manager, which minimizes merging in many branches, as you can just point the package manager at the updated module version, but brings its own hassles.
+
+I've worked on projects where there were 6-7 major branches active at the same time and several smaller ones, besides the master branch. Then you'd have to merge everywhere applicable, etc. This is a totally different approach from the Google monorepo approach of "master only", basically. And probably one of the main reasons why Golang is having a ton of difficulties in the outside world by not having a proper versioning story.
+
+Comment: Once youre shipping software off prem you need to patch it between major and minor releases.
+Typically one way to do that is to branch when you do a release to a branch namded for the release. Say 1.2. Then when issues pop up you fix it in the branch then see if it applies to the trunk or other branches after that.
+
+
 ### Could you get the best of both worlds by having a monorepo of submodules? 
 
 Code would live in separate repos, but references would be declared in the monorepo. Checkins and rollbacks to the monorepo would trigger CI.
