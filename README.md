@@ -156,10 +156,14 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
     </tr>
     <tr>
       <th>Scaling</th>
-      <td><p>Scaling needs specialized tooling.<p>For example, it is currently not practical to use vanilla git with very large repos, or very large files, without any extra tooling. For monorepo scaling, teams invest in writing custom tooling and providing custom training.<p>An example is Google writing the “bazel” tool, which tracks internal dependencies by using directed acyclic graphs.</td>
-      <td><p>Scaling needs specialized coordination.<p>For example, it is currently not practical to use vanilla git with many projects across many repos, where a team wants to coordinate code changes, testing, packaging, and releasing. For polyrepo scaling, teams invest in writing coordination scripts and careful cross-version compatibility.<p>An example is Lyft writing the “refactorator” tool, which automates making changes in multiple repos, including opening PRs, tracking status, etc.</td>
+      <td>Scaling needs specialized tooling. It is currently not practical to use vanilla git with very large repos, or very large files, without any extra tooling. For monorepo scaling, teams invest in writing custom tooling and providing custom training.</td>
+      <td>Scaling needs specialized coordination. It is currently not practical to use vanilla git with many projects across many repos, where a team wants to coordinate code changes, testing, packaging, and releasing. For polyrepo scaling, teams invest in writing coordination scripts and careful cross-version compatibility.</td>
     </tr>
     <tr>
+      <th>Tooling</th>
+      <td>Google wrote the tool “bazel”, which tracks internal dependencies by using directed acyclic graphs.</td>
+      <td>Lyft wrote the tool “refactorator”, which automates making changes in multiple repos, including opening PRs, tracking status, etc.</td>
+    </tr>
   </tbody>
 </table>
 
