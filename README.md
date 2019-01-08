@@ -299,6 +299,11 @@ Monorepo involves mostly challenges around scaling the organization in a single 
 Polyrepo involves mostly challenges with coordination.
 
 
+### How Bazel helps
+
+Bazel requires you to explicitly declare your dependencies for each 'target' you want to build. These dependencies can be within the same Bazel workspace, or imported at build time via say git - there's no need to have all the files directly in your repo. The nice thing is you can declare the commit id or file hash for the dependency you're importing to make sure you're getting what you expect, and keep Bazel's reproducibility properties.
+
+
 ### Could you get the best of both worlds by having a monorepo of submodules? 
 
 Code would live in separate repos, but references would be declared in the monorepo. Checkins and rollbacks to the monorepo would trigger CI.
@@ -308,6 +313,17 @@ Answer: There's not much good to either world. You need fairly extensive tooling
 Answer: We actually did this. When I started at Uber ATG one of our devs made a submodule called `uber_monorepo` that was linked from the root of our git repo. In our repo's `.buckconfig` file we had access to everything that the mobile developers at Uber had access to by prefixing our targets with `//uber_monorepo/`. We did however run into the standard dependency resolution issue when you have any loosely coupled dependency. Updating our submodule usually required a 1-2 day effort because we were out of sync for a month or two.
 
 
+### Hybrid of "many repos"
+
+We consider our org to be "many repos". We have several thousands. However, hundreds of them contain 5, 10, or 20+ packages/projects/services. It's funny because we'll talk about creating "monorepos" (plural) for certain part of our product, and it confuses people.
+
+There's a few thousand libraries, those obviously refer to each other.. Some have readme files and that's enough, some have full documentation "books", some have comments in the code and that's enough.
+
+We don't mandate a company wide development process, so each team and groups can choose their own process and how they track their stuff.
+
+We do have automation and tooling to keep track of things though.
+
+
 ### Prediction of a new type of VCS
 
 What we all really want is a VCS where repos can be combined and separated easily, or where one repo can gain the benefits of a monorepo without the drawbacks of one.
@@ -315,3 +331,5 @@ What we all really want is a VCS where repos can be combined and separated easil
 Prediction: just as DVCS killed off pre-DVCS practically overnight, the thing that will quickly kill off DVCS is a new type of VCS where you can trivially combine/separate repos and sections of repos as needed. You can assign, at the repo level, sub-repos to include in this one, get an atomic commit hash for the state of the whole thing, and where my VCS client doesn't need to actually download every linked repo, but where tools are available to act like I have.
 
 In a sense, we already have all of these features, in folders. You can combine and separate them, you can make a local folder mimic a folder on a remote system, and access its content without needing to download it all ahead of time. They just don't have any VCS features baked in. We've got {filesystems, network filesystems, and VCS}, and each of the three has some features the others would like.
+
+
