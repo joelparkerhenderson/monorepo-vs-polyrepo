@@ -239,15 +239,15 @@ Monorepo scaling can be improved by:
 
 Monorepo scaling seems to become an issue, in practice, at approximately these kinds of metrics:
 
-  * 100+ developers writing code full time.
+  * 10-100 developers writing code full time.
 
-  * 100+ projects in progress at the same time.
+  * 10-100 projects in progress at the same time.
 
-  * 100+ packaging processes during the same time period, such as a daily release.
+  * 10-100 packaging processes during the same time period, such as a daily release.
 
-  * 10K+ lines of code
+  * 1K-10K lines of code
   
-  * 10K+ versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
+  * 1K-10K versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
 
 
 ## Proponents of monorepo
