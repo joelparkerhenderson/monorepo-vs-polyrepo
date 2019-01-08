@@ -26,7 +26,6 @@ Contents:
   * [I’ve found monorepos to be extremely valuable in an less-mature, high-churn codebase](#i-ve-found-monorepos-to-be-extremely-valuable-in-an-less-mature-high-churn-codebase)
 * [Opinions: polyrepo is better](#opinions-polyrepo-is-better)
   * [If tech's biggest names use a monorepo, should we do the same?](#if-tech-s-biggest-names-use-a-monorepo-should-we-do-the-same)
-  * [Blindly copying](#blindly-copying)
   * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
   * [Visible organization](#visible-organization)
 * [Opinions about splitting](#opinions-about-splitting)
@@ -271,11 +270,6 @@ Some of tech’s biggest names use a monorepo, including Google, Facebook, Twitt
 Why? Because, at scale, a monorepo must solve every problem that a polyrepo must solve, with the downside of encouraging tight coupling, and the additional herculean effort of tackling VCS scalability. 
   
 Thus, in the medium to long term, a monorepo provides zero organizational benefits, while inevitably leaving some of an organization’s best engineers with a wicked case of PTSD (manifested via drooling and incoherent mumbling about git performance internals).
-
-
-### Blindly copying
-
-I see companies that want to "google scale" and blindly copy the idea of monorepos but without the requisite tooling teams or cloud computing background / infrastructure that makes this possible.
 
 
 ### Coupling between unrelated projects
