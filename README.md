@@ -276,7 +276,9 @@ Still, I almost err on the side of monorepos because of the convenience that edi
 
 ### A common mission
 
-I find it helpful to think of a company as a group of people engaged in a common mission. The company pursues its mission through multiple subprojects, and every decision taken and every code change introduced is a step towards its primary goal. The code base is a chunk of the company's institutional knowledge about its overarching goal and means to that end. Looking at it from this perspective, a monorepo can be seen as the most natural expression of the fact that all team members are engaged in a single, if multi-faceted, enterprise.
+I find it helpful to think of a company as a group of people engaged in a common mission. The company pursues its mission through multiple subprojects, and every decision taken and every code change introduced is a step towards its primary goal. The code base is a chunk of the company's institutional knowledge about its overarching goal and means to that end.
+
+Looking at it from this perspective, a monorepo can be seen as the most natural expression of the fact that all team members are engaged in a single, if multi-faceted, enterprise.
 
 
 ## Proponents of polyrepo
