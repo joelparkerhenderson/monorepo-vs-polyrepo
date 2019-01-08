@@ -29,7 +29,11 @@ Contents:
   * [OctoLinker really helps when browsing a polyrepo on Github](#octolinker-really-helps-when-browsing-a-polyrepo-on-github)
   * [It's a social problem in how you manage boundaries](#it-s-a-social-problem-in-how-you-manage-boundaries)
   * [Challenges of monorepo and polyrepo](#challenges-of-monorepo-and-polyrepo)
+  * [How Bazel helps](#how-bazel-helps)
+  * [On-premise applications or desktop applications](#on-premise-applications-or-desktop-applications)
   * [Could you get the best of both worlds by having a monorepo of submodules? ](#could-you-get-the-best-of-both-worlds-by-having-a-monorepo-of-submodules)
+  * [Hybrid of "many repos"](#hybrid-of-many-repos)
+  * [Prediction of a new type of VCS](#prediction-of-a-new-type-of-vcs)
 
 See:
 
@@ -40,30 +44,28 @@ See:
 * [Monorepos: Please don’t! by Matt Klein](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
 * [Hacker News discussion](https://news.ycombinator.com/item?id=18808909)
 
+Opinions and comments on this page are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity. If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
+
 
 ## Introduction
 
 
 ### What is monorepo? 
 
-Monorepo is a nickname that means "using one repository for the source code management version control system".
+Monorepo is a nickname that means "using one repository for the source code management version control system". Monorepo is also known as one-repo or uni-repo.
 
   * A monorepo architecture means using one repository, rather than multiple repositories.
 
   * For example, a monorepo can use one repo that contains a directory for a web app project, a directory for a mobile app project, and a directory for a server app project. 
 
-  * Monorepo is a.k.a. one-repo or uni-repo.
-
 
 ### What is polyrepo?
 
-Polyrepo is a nickname that means "using multiple repostories for the source code management version control system". 
-
+Polyrepo is a nickname that means "using multiple repostories for the source code management version control system". Polyrepo is also known as many-repo or multi-repo.
+  
   * A polyrepo architecture means using multiple repositories, rather than one repository.
 
   * For example, a polyrepo can use a repo for a web app project, a repo for a mobile app project, and a repo for a server app project. 
-
-  * Polyrepo is a.k.a. many-repo or multi-repo.  
 
 
 ## Comparisons
@@ -159,6 +161,31 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
 </table>
 
 
+## Tooling
+
+
+### Bazel
+
+[Bazel](https://github.com/bazelbuild/bazel) is a fast, scalable, multi-language and extensible build system. Bazel only rebuilds what is necessary. With advanced local and distributed caching, optimized dependency analysis and parallel execution, you get fast and incremental builds.
+
+Bazel requires you to explicitly declare your dependencies for each 'target' you want to build. These dependencies can be within the same Bazel workspace, or imported at build time via say git - there's no need to have all the files directly in your repo.
+
+The nice thing is you can declare the commit id or file hash for the dependency you're importing to make sure you're getting what you expect, and keep Bazel's reproducibility properties.
+
+
+### Lerna
+
+[Lerna](https://github.com/lerna/lerna) is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+
+
+### OctoLinker
+
+
+[Octolinker](https://github.com/OctoLinker/OctoLinker) really helps when browsing a polyrepo on Github. You can just click the import [project] name and it will switch to the repo.
+
+
+
+
 ## Monorepo scaling
 
 
@@ -197,9 +224,7 @@ Monorepo scaling seems to become an issue, in practice, at approximately these k
   * 10K+ versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
 
 
-## Opinions
-
-These opinions are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity. If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
+## Opinions: monorepo is better
 
 
 ### If components need to release together, then use a monorepo
@@ -223,6 +248,9 @@ At some point a monorepo outgrows its usefulness. The sheer amount of files in s
 Still, I almost err on the side of monorepos because of the convenience that editors like vscode offer: autocomplete, auto-updating imports, etc.
 
 
+## Opinions: polyrepo is better
+
+
 ### If tech's biggest names use a monorepo, should we do the same?
 
 Some of tech’s biggest names use a monorepo, including Google, Facebook, Twitter, and others. Surely if these companies all use a monorepo, the benefits must be tremendous, and we should all do the same, right? Wrong! 
@@ -244,13 +272,7 @@ I worry about the monorepo coupling between unrelated products. While I admit pa
 I've read of at least one less serious case of this from google with JUnit: "In 2007, Google tried to upgrade their JUnit from 3.8.x to 4.x and struggled as there was a subtle backward incompatibility in a small percentage of their usages of it. The change-set became very large, and struggled to keep up with the rate developers were adding tests."
 
 
-### We don't use a monorepo, and it's hell
-
-I may make a change to X, but some other developer doesn't know it, and then one day when he makes a change to X and tries to pull those changes into Y, now he has to change the bits of Y which are affected by my changes as well as his.
-
-I would love to have a monorepo, although I'd advocate for branch-based rather than trunk-based development. 
-
-Yes, merges can be their own kind of hell, but they impose that cost on the one making breaking changes, rather than everyone else.
+## Opinions about splitting
 
 
 ### Splitting one repo is easier than combining multiple repos
@@ -273,12 +295,7 @@ This makes code review more annoying because you have to tab back and forth to s
 This makes it worse to make changes to fundamental (internal) libraries used by every project. It's too much hassle to track down all the uses of a particular function, so I end up putting that change elsewhere, which means someone else will do it a little different in their corner of the world, which utterly confuses the first person who's unlucky enough to work in both code bases (at the same time, or after moving teams).
 
 
-### OctoLinker really helps when browsing a polyrepo on Github
-
-
-You can just click the import [project] name and it will switch to the repo.
-
-See https://github.com/OctoLinker/OctoLinker
+## Opinions about balances
 
 
 ### It's a social problem in how you manage boundaries
@@ -299,11 +316,6 @@ Monorepo involves mostly challenges around scaling the organization in a single 
 Polyrepo involves mostly challenges with coordination.
 
 
-### How Bazel helps
-
-Bazel requires you to explicitly declare your dependencies for each 'target' you want to build. These dependencies can be within the same Bazel workspace, or imported at build time via say git - there's no need to have all the files directly in your repo. The nice thing is you can declare the commit id or file hash for the dependency you're importing to make sure you're getting what you expect, and keep Bazel's reproducibility properties.
-
-
 ### On-premise applications or desktop applications
 
 If you're creating on-premise applications or desktop applications (things requiring long lived release branches), the discussion is totally different.
@@ -314,6 +326,9 @@ I've worked on projects where there were 6-7 major branches active at the same t
 
 Comment: Once youre shipping software off prem you need to patch it between major and minor releases.
 Typically one way to do that is to branch when you do a release to a branch namded for the release. Say 1.2. Then when issues pop up you fix it in the branch then see if it applies to the trunk or other branches after that.
+
+
+## Opinions about alternatives
 
 
 ### Could you get the best of both worlds by having a monorepo of submodules? 
