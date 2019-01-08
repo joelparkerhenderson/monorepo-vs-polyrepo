@@ -20,11 +20,12 @@ Contents:
   * [Monorepo scaling problem](#monorepo-scaling-problem)
   * [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
   * [Monorepo scaling metrics](#monorepo-scaling-metrics)
-* [Opinions: monorepo is better](#opinions-monorepo-is-better)
+* [Proponents of monorepo](#proponents-of-monorepo)
   * [If components need to release together, then use a monorepo](#if-components-need-to-release-together-then-use-a-monorepo)
   * [If components need to share common code, then use a monorepo](#if-components-need-to-share-common-code-then-use-a-monorepo)
   * [I’ve found monorepos to be extremely valuable in an less-mature, high-churn codebase](#i-ve-found-monorepos-to-be-extremely-valuable-in-an-less-mature-high-churn-codebase)
-* [Opinions: polyrepo is better](#opinions-polyrepo-is-better)
+  * [A common mission](#a-common-mission)
+* [Proponents of polyrepo](#proponents-of-polyrepo)
   * [If tech's biggest names use a monorepo, should we do the same?](#if-tech-s-biggest-names-use-a-monorepo-should-we-do-the-same)
   * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
   * [Visible organization](#visible-organization)
@@ -249,7 +250,7 @@ Monorepo scaling seems to become an issue, in practice, at approximately these k
   * 10K+ versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
 
 
-## Opinions: monorepo is better
+## Proponents of monorepo
 
 
 ### If components need to release together, then use a monorepo
@@ -273,7 +274,12 @@ At some point a monorepo outgrows its usefulness. The sheer amount of files in s
 Still, I almost err on the side of monorepos because of the convenience that editors like vscode offer: autocomplete, auto-updating imports, etc.
 
 
-## Opinions: polyrepo is better
+### A common mission
+
+I find it helpful to think of a company as a group of people engaged in a common mission. The company pursues its mission through multiple subprojects, and every decision taken and every code change introduced is a step towards its primary goal. The code base is a chunk of the company's institutional knowledge about its overarching goal and means to that end. Looking at it from this perspective, a monorepo can be seen as the most natural expression of the fact that all team members are engaged in a single, if multi-faceted, enterprise.
+
+
+## Proponents of polyrepo
 
 
 ### If tech's biggest names use a monorepo, should we do the same?
