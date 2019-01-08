@@ -47,9 +47,18 @@ See:
 * [Why Google stores billions of lines of code in a single repository (2016) (acm.org)](https://dl.acm.org/citation.cfm?id=2854146)
 * [Scaling Mercurial at Facebook](https://code.facebook.com/posts/218678814984400/scaling-mercurial-at-facebook/)
 * [Monorepos: Please don’t! by Matt Klein](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b)
-* [Hacker News discussion](https://news.ycombinator.com/item?id=18808909)
+* [Cthulhu: Organizing Go Code in a Scalable Repo](https://blog.digitalocean.com/cthulhu-organizing-go-code-in-a-scalable-repo/)
 
-Opinions and comments on this page are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity. If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
+Hacker News dicussions:
+
+* [Monorepos: Please don’t!](https://news.ycombinator.com/item?id=18808909)
+* [Monorepos and the Fallacy of Scale](https://news.ycombinator.com/item?id=18855660)
+
+Credits:
+
+* Opinions and comments on this page are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity.
+
+* If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
 
 
 ## Introduction
