@@ -28,6 +28,7 @@ Contents:
   * [If tech's biggest names use a monorepo, should we do the same?](#if-tech-s-biggest-names-use-a-monorepo-should-we-do-the-same)
   * [Blindly copying](#blindly-copying)
   * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
+  * [Visible organization](#visible-organization)
 * [Opinions about splitting](#opinions-about-splitting)
   * [Splitting one repo is easier than combining multiple repos](#splitting-one-repo-is-easier-than-combining-multiple-repos)
   * [Splitting may be too fine](#splitting-may-be-too-fine)
@@ -282,6 +283,15 @@ I see companies that want to "google scale" and blindly copy the idea of monorep
 I worry about the monorepo coupling between unrelated products. While I admit part of this probably comes from my more libertarian world view but I have seen something as basic as a server upgrade schedule that is tailored for one product severely hurt the development of another product, to the point of almost halting development for months. I can't imagine needing a new feature or a big fix from a dependency but to be stuck because the whole company isn't ready to upgrade.
 
 I've read of at least one less serious case of this from google with JUnit: "In 2007, Google tried to upgrade their JUnit from 3.8.x to 4.x and struggled as there was a subtle backward incompatibility in a small percentage of their usages of it. The change-set became very large, and struggled to keep up with the rate developers were adding tests."
+
+
+### Visible organization
+
+I argue that a visible organization of a codebase into repositories makes it easier to reuse code in the same way that interface/implementation splits do: it makes it clearer which parts felt domain-specific and which felt like reusable libraries.
+
+Being able to represent "not directly involved, but versioned together" and "separate enough to be versioned separately" is a very valuable distinction to have in your toolbox.
+
+Once your team is large enough that your developers are not all attending the same standup, then you should be working in multiple repositories. You need to have a release cycle with semVer etc. so that developers who aren't in close communication with you can understand the impact of changes to your code area. Since tags are repository-global, the repository should be the unit of versioning/releasing.
 
 
 ## Opinions about splitting
