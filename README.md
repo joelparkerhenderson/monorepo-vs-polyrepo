@@ -87,59 +87,72 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Monorepo</th>
       <th>Polyrepo</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>Contents</th>
       <td>Typically a repo contains multiple projects, programming languages, packaging processes, etc.</td>
       <td>Typically a repo contains one project, programming language, packaging process, etc.</td>
     </tr>
     <tr>
+      <th>Projects</th>
       <td>Manages projects in one repository, together, holistically.</td>
       <td>Manages projects in multiple repositories, separately, independently.</td>
     </tr>
-    <tr>      
-      <td>Enables working in all projects simultaneously, all within the monorepo. </td>
-      <td>Enables working in each project one at a time, each in its own repo.</td>
+    <tr>
+      <th>Workflows</th>
+      <td>Enables workflows in all projects simultaneously, all within the monorepo. </td>
+      <td>Enables workflows in each project one at a time, each in its own repo.</td>
     </tr>
-    <tr>      
+    <tr>
+      <th>Changes</th>
       <td>Ensures changes affect all the projects, can be tracked together, tested together, and released together.</td>
       <td>Ensures changes affect only one project, can be tracked separately, tested separately, and released separately.</td>
     </tr>
-    <tr>      
-      <td>Easier collaboration and code sharing within an organization. </td>
-      <td>Easier collaboration and code sharing across organizations.</td>
+    <tr>
+      <th>Collaboration</th>
+      <td>Encourages collaboration and code sharing within an organization. </td>
+      <td>Encourages collaboratio and code sharing across organizations.</td>
     </tr>
-    <tr>      
+    <tr>
+      <th>Testing</th>
       <td>Good white box testing because all projects are testable together, and verifiable holistically.</td>
       <td>Good black box testing because each project is tesable separately, and verifiable independently.</td>
     </tr>
     <tr>
+      <th>Releases</th>
       <td>Coordinated releases are inherent, yet must use a polygot of tooling.</td>
       <td>Coordinated releases must be programmed, yet can use vanilla tooling.</td>
     </tr>
     <tr>
-      <td>One commit in one repo is the current state of all projects.</td>
-      <td>Each commit in each repo is the current state of each project.</td>
+      <th>State</th>
+      <td>The current state of everything is one commit in one repo.</td>
+      <td>The current state of everything is a commit per repo.</td>
     </tr>
     <tr>
+      <th>Coupling</th>
       <td>Tight coupling of projects.</td>
       <td>No coupling of projects.</td>
     </tr>
     <tr>
+      <th>Thinking</th>
       <td>Encourages thinking about conjoins among projects.</td>
       <td>Encourages thinking about contracts between projects.</td>
     </tr>
     <tr>
+      <th>Access</th>
       <td><p>Access control defaults to all projects.<p>Some teams use tools for finer-grained access control.<p>Gitlab offers ownership control where you can say who owns what directories for things like approving merge requests that affect those directories. Google Piper has finer-grained access control. Phabricator offers herald rules that stop a merge from happening if a file has changed in a specific subdirrectory. Some teams use service owners, so when a change spans multiple services, they are all added automatically as blocking reviewers.</td>
       </td>
       <td><p>Access control defaults to per project.<p>Some teams use tools for broader-graned access control.<p>GitHub offers teams where you can say one team owns many projects and for things like approving requests that affect multiple repos.</td>
     </tr>
     <tr>
-      <td><p>Monorepo scaling necessitates specialized tooling.<p>For example, it is currently not practical to use vanilla git with very large repos, or very large files, without any extra tooling. For monorepo scaling, teams invest in writing custom tooling and providing custom training.<p>An example is Google writing the “bazel” tool, which tracks internal dependencies by using directed acyclic graphs.</td>
-      <td><p>Polyrepo scaling necessitates specialized coordination.<p>For example, it is currently not practical to use vanilla git with many projects across many repos, where a team wants to coordinate code changes, testing, packaging, and releasing. For polyrepo scaling, teams invest in writing coordination scripts and careful cross-version compatibility.<p>An example is Lyft writing the “refactorator” tool, which automates making changes in multiple repos, including opening PRs, tracking status, etc.</td>
+      <th>Scaling</th>
+      <td><p>Scaling needs specialized tooling.<p>For example, it is currently not practical to use vanilla git with very large repos, or very large files, without any extra tooling. For monorepo scaling, teams invest in writing custom tooling and providing custom training.<p>An example is Google writing the “bazel” tool, which tracks internal dependencies by using directed acyclic graphs.</td>
+      <td><p>Scaling needs specialized coordination.<p>For example, it is currently not practical to use vanilla git with many projects across many repos, where a team wants to coordinate code changes, testing, packaging, and releasing. For polyrepo scaling, teams invest in writing coordination scripts and careful cross-version compatibility.<p>An example is Lyft writing the “refactorator” tool, which automates making changes in multiple repos, including opening PRs, tracking status, etc.</td>
     </tr>
     <tr>
   </tbody>
