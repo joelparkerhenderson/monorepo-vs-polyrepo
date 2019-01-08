@@ -52,21 +52,24 @@ Opinions and comments on this page are thanks to many people on various discussi
 
 ### What is monorepo? 
 
-Monorepo is a nickname that means "using one repository for the source code management version control system". Monorepo is also known as one-repo or uni-repo.
+Monorepo is a nickname that means "using one repository for the source code management version control system".
 
   * A monorepo architecture means using one repository, rather than multiple repositories.
 
   * For example, a monorepo can use one repo that contains a directory for a web app project, a directory for a mobile app project, and a directory for a server app project. 
 
+  * Monorepo is also known as one-repo or uni-repo.
+
 
 ### What is polyrepo?
 
-Polyrepo is a nickname that means "using multiple repostories for the source code management version control system". Polyrepo is also known as many-repo or multi-repo.
+Polyrepo is a nickname that means "using multiple repostories for the source code management version control system". 
   
   * A polyrepo architecture means using multiple repositories, rather than one repository.
 
   * For example, a polyrepo can use a repo for a web app project, a repo for a mobile app project, and a repo for a server app project. 
 
+  * Polyrepo is also known as many-repo or multi-repo.
 
 ## Comparisons
 
