@@ -145,7 +145,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
     <tr>
       <th>Testing</th>
       <td>Good white box testing because all projects are testable together, and verifiable holistically.</td>
-      <td>Good black box testing because each project is tesable separately, and verifiable independently.</td>
+      <td>Good black box testing because each project is testable separately, and verifiable independently.</td>
     </tr>
     <tr>
       <th>Releases</th>
