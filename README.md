@@ -344,7 +344,7 @@ In the polyrepo case those boundaries have to be made explicit (otherwise no one
 
 ### Challenges of monorepo and polyrepo
 
-My last 2 jobs have been working on developer productivity for 100+ developer organizations. One organization uses monorepo, one organizatino uses polyrepo. 
+My last 2 jobs have been working on developer productivity for 100+ developer organizations. One organization uses monorepo, one organization uses polyrepo. 
   
 Neither really seems to result in less work, or a better experience. But I've found that your choice just dictates what type of problems you have to solve.
 
