@@ -106,7 +106,7 @@ Key similarities between monorepo and polyrepo:
 
 ### Key differences
 
-Key differences between monorepo and polyrepo, summarized from many proponents, and intending to highlight typical differences betwee a typical monorepo and a typical polyrepo.
+Key differences between monorepo and polyrepo, summarized from many proponents, and intending to highlight typical differences between a typical monorepo and a typical polyrepo.
 
 <table>
   <thead>
@@ -140,7 +140,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
     <tr>
       <th>Collaboration</th>
       <td>Encourages collaboration and code sharing within an organization. </td>
-      <td>Encourages collaboratio and code sharing across organizations.</td>
+      <td>Encourages collaboration and code sharing across organizations.</td>
     </tr>
     <tr>
       <th>Testing</th>
