@@ -140,7 +140,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
     <tr>
       <th>Collaboration</th>
       <td>Encourages collaboration and code sharing within an organization. </td>
-      <td>Encourages collaboratio and code sharing across organizations.</td>
+      <td>Encourages collaboration and code sharing across organizations.</td>
     </tr>
     <tr>
       <th>Testing</th>
