@@ -359,7 +359,7 @@ If you're creating on-premise applications or desktop applications (things requi
 
 I find that shipped software actually operates better in a normal, branched monorepo. You just branch the whole thing. The alternative is several repos and using a package manager, which minimizes merging in many branches, as you can just point the package manager at the updated module version, but brings its own hassles.
 
-I've worked on projects where there were 6-7 major branches active at the same time and several smaller ones, besides the master branch. Then you'd have to merge everywhere applicable, etc. This is a totally different approach from the Google monorepo approach of "master only", basically. And probably one of the main reasons why Golang is having a ton of difficulties in the outside world by not having a proper versioning story.
+I've worked on projects where there were 6-7 major branches active at the same time and several smaller ones, besides the master branch. Then you'd have to merge everywhere applicable, etc. This is a totally different approach from the Google monorepo approach of "master only", basically. And probably one of the main reasons why Go language was having (and partialy still having) a ton of difficulties in the outside world by not having a proper versioning story.
 
 Comment: Once youre shipping software off prem you need to patch it between major and minor releases.
 Typically one way to do that is to branch when you do a release to a branch namded for the release. Say 1.2. Then when issues pop up you fix it in the branch then see if it applies to the trunk or other branches after that.
