@@ -245,10 +245,10 @@ Monorepo scaling seems to become an issue, in practice, at approximately these k
 
   * 10-100 packaging processes during the same time period, such as a daily release.
 
-  * 1K-10K lines of code
-  
   * 1K-10K versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
 
+  * 1M-10M lines of code
+  
 
 ## Proponents of monorepo
 
