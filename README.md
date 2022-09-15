@@ -171,7 +171,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
       <th>Access</th>
       <td><p>Access control defaults to all projects.<p>Some teams use tools for finer-grained access control.<p>Gitlab offers ownership control where you can say who owns what directories for things like approving merge requests that affect those directories. Google Piper has finer-grained access control. Phabricator offers herald rules that stop a merge from happening if a file has changed in a specific subdirrectory. Some teams use service owners, so when a change spans multiple services, they are all added automatically as blocking reviewers.</td>
       </td>
-      <td><p>Access control defaults to per project.<p>Some teams use tools for broader-graned access control.<p>GitHub offers teams where you can say one team owns many projects and for things like approving requests that affect multiple repos.</td>
+      <td><p>Access control defaults to per project.<p>Some teams use tools for broader-grained access control.<p>GitHub offers teams where you can say one team owns many projects and for things like approving requests that affect multiple repos.</td>
     </tr>
     <tr>
       <th>Scaling</th>
