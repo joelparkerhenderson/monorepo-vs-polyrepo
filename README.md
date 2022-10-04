@@ -210,6 +210,11 @@ The nice thing is you can declare the commit id or file hash for the dependency 
 [Octolinker](https://github.com/OctoLinker/OctoLinker) really helps when browsing a polyrepo on Github. You can just click the import [project] name and it will switch to the repo.
 
 
+### Nx
+
+[Nx](https://nx.dev/) is a build system with monorepo support and powerful integrations.
+
+
 
 
 ## Monorepo scaling
