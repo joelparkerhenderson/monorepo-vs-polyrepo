@@ -193,7 +193,7 @@ The nice thing is you can declare the commit id or file hash for the dependency 
 
 ### moon
 
-[moon](https://moonrepo.dev/docs) is a multi-language task runner and monorepo management tool. Like Bazel, it only rebuilds what is necessary, with support for local and remote caching, dependency analysis, parallel execution, incremental builds, and even a robust language toolchain.
+[moon](https://moonrepo.dev/moon) is a multi-language task runner and monorepo management tool. Like Bazel, it only rebuilds what is necessary, with support for local and remote caching, dependency analysis, parallel execution, incremental builds, and even a robust language toolchain.
 
 moon is not a build system, but is a powerful task runner and organization tool, so if you're looking for a tool that sits somewhere between Bazel (full commitment) and Make scripts (no commitment), moon is a great choice.
 
