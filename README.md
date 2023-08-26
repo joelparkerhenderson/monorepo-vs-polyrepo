@@ -199,9 +199,16 @@ Bazel requires you to explicitly declare your dependencies for each 'target' you
 The nice thing is you can declare the commit id or file hash for the dependency you're importing to make sure you're getting what you expect, and keep Bazel's reproducibility properties.
 
 
+### moon
+
+[moon](https://moonrepo.dev/moon) is a multi-language task runner and monorepo management tool. Like Bazel, it only rebuilds what is necessary, with support for local and remote caching, dependency analysis, parallel execution, incremental builds, and even a robust language toolchain.
+
+moon is not a build system, but is a powerful task runner and organization tool, so if you're looking for a tool that sits somewhere between Bazel (full commitment) and Make scripts (no commitment), moon is a great choice.
+
+
 ### Lerna
 
-[Lerna](https://github.com/lerna/lerna) is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
+[Lerna](https://github.com/lerna/lerna) is a tool that optimizes the workflow around managing multi-package repositories with git and npm. It's primarily for Node.js based repositories.
 
 
 ### OctoLinker
@@ -400,5 +407,6 @@ What we all really want is a VCS where repos can be combined and separated easil
 Prediction: just as DVCS killed off pre-DVCS practically overnight, the thing that will quickly kill off DVCS is a new type of VCS where you can trivially combine/separate repos and sections of repos as needed. You can assign, at the repo level, sub-repos to include in this one, get an atomic commit hash for the state of the whole thing, and where my VCS client doesn't need to actually download every linked repo, but where tools are available to act like I have.
 
 In a sense, we already have all of these features, in folders. You can combine and separate them, you can make a local folder mimic a folder on a remote system, and access its content without needing to download it all ahead of time. They just don't have any VCS features baked in. We've got {filesystems, network filesystems, and VCS}, and each of the three has some features the others would like.
+
 
 
