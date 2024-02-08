@@ -244,7 +244,7 @@ Monorepo scaling can be improved by:
 
   * Some type of virtual file system (VFS) that allows a portion of the code to be present locally. This might be accomplished via a proprietary VCS like Perforce which natively operates this way, or via Google’s “G3” internal tooling, or via Microsoft’s GVFS.
 
-  * Sophisticated source code indexing/searching/discovery capabilities as a service. This is because a typical developer is not going to have all the source code locallly, in a searchable state, using vanilla tooling. 
+  * Sophisticated source code indexing/searching/discovery capabilities as a service. This is because a typical developer is not going to have all the source code locally, in a searchable state, using vanilla tooling. 
 
 
 ### Monorepo scaling metrics
@@ -373,8 +373,8 @@ I find that shipped software actually operates better in a normal, branched mono
 
 I've worked on projects where there were 6-7 major branches active at the same time and several smaller ones, besides the master branch. Then you'd have to merge everywhere applicable, etc. This is a totally different approach from the Google monorepo approach of "master only", basically. And probably one of the main reasons why Golang is having a ton of difficulties in the outside world by not having a proper versioning story.
 
-Comment: Once youre shipping software off prem you need to patch it between major and minor releases.
-Typically one way to do that is to branch when you do a release to a branch namded for the release. Say 1.2. Then when issues pop up you fix it in the branch then see if it applies to the trunk or other branches after that.
+Comment: Once you are shipping software off prem you need to patch it between major and minor releases.
+Typically one way to do that is to branch when you do a release to a branch named for the release. Say 1.2. Then when issues pop up you fix it in the branch then see if it applies to the trunk or other branches after that.
 
 
 ## Opinions about alternatives
@@ -382,7 +382,7 @@ Typically one way to do that is to branch when you do a release to a branch namd
 
 ### Could you get the best of both worlds by having a monorepo of submodules? 
 
-Code would live in separate repos, but references would be declared in the monorepo. Checkins and rollbacks to the monorepo would trigger CI.
+Code would live in separate repos, but references would be declared in the monorepo. Checkings and rollbacks to the monorepo would trigger CI.
 
 Answer: There's not much good to either world. You need fairly extensive tooling to make working with a repo of submodules comfortable at any scale. At large scale, that tooling can be simpler than the equivalent monorepo tooling, assuming that your individual repos remain "small" but also appropriately granular (not a given--organizing is hard, especially if you leave it to individual project teams). However, in the process of getting there, a monorepo requires no particular bespoke tooling at small or even medium scale (it's just "a repo"), and the performance intolerability pretty much scales smoothly from there. And those can be treated as technical problems if you don't want to approach social problems.
 
