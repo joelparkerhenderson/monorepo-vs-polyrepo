@@ -382,7 +382,7 @@ Typically one way to do that is to branch when you do a release to a branch name
 
 ### Could you get the best of both worlds by having a monorepo of submodules? 
 
-Code would live in separate repos, but references would be declared in the monorepo. Checkings and rollbacks to the monorepo would trigger CI.
+Code would live in separate repos, but references would be declared in the monorepo. Check-ins and rollbacks to the monorepo would trigger CI.
 
 Answer: There's not much good to either world. You need fairly extensive tooling to make working with a repo of submodules comfortable at any scale. At large scale, that tooling can be simpler than the equivalent monorepo tooling, assuming that your individual repos remain "small" but also appropriately granular (not a given--organizing is hard, especially if you leave it to individual project teams). However, in the process of getting there, a monorepo requires no particular bespoke tooling at small or even medium scale (it's just "a repo"), and the performance intolerability pretty much scales smoothly from there. And those can be treated as technical problems if you don't want to approach social problems.
 
