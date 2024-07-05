@@ -32,7 +32,7 @@ Contents:
   * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
   * [Visible organization](#visible-organization)
 * [Opinions about splitting](#opinions-about-splitting)
-  * [Splitting one repo is easier than combining multiple repos](#splitting-one-repo-is-easier-than-combining-multiple-repos)
+  * [Splitting one repo is often harder than combining multiple repos](#splitting-one-repo-is-harder-than-combining-multiple-repos)
   * [Splitting may be too fine](#splitting-may-be-too-fine)
 * [Opinions about balances](#opinions-about-balances)
   * [It's a social problem in how you manage boundaries](#it-s-a-social-problem-in-how-you-manage-boundaries)
@@ -325,14 +325,10 @@ Once your team is large enough that your developers are not all attending the sa
 
 ## Opinions about splitting
 
-
-### Splitting one repo is easier than combining multiple repos
-
-You can split big repositories into smaller ones quite easily (in Git anyway). If you only need to do this once, then subtree will do the job, even retaining all your history if you want. As another way to split, you can duplicate the repo and pull trees out of each dupe in normal commits.
-  
-But combining small repositories together into a bigger repo is a lot harder. 
-  
-So start out with a monorepo.
+### Splitting one repo is often harder than combining multiple repos
+ 
+When it comes to the point you find you need to split a monorepo, the typical reason is it has become to big to manage. At that point, the unreasonable coulping between unrelated products has typically been a big problem. Although git keep code files in a tree form, the dependency relationship is more likely to be a gragh with many cycles. You will find it very hard to split them into logically clean sub-repos in that case.
+On the other hand, combining smaller repos into monorepo is relatively easy. We do that all the time when introducing third party libs as source code form.
 
 Only split a monorepo into multiple smaller repositories when you're clear that it really makes sense.
 
