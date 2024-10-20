@@ -170,7 +170,7 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
     </tr>
     <tr>
       <th>Access</th>
-      <td><p>Access control defaults to all projects.<p>Some teams use tools for finer-grained access control.<p>Gitlab and GitHub offer ownership control where you can say who owns what directories for things like approving merge requests that affect those directories(using CODEOWNERS). Google Piper has finer-grained access control. Phabricator offers herald rules that stop a merge from happening if a file has changed in a specific subdirrectory. Some teams use service owners, so when a change spans multiple services, they are all added automatically as blocking reviewers.</td>
+      <td><p>Access control defaults to all projects.<p>Some teams use tools for finer-grained access control.<p>Gitlab and GitHub offer ownership control where you can say who owns what directories for things like approving merge requests that affect those directories(using CODEOWNERS). Google Piper has finer-grained access control. Phabricator offers herald rules that stop a merge from happening if a file has changed in a specific subdirectory. Some teams use service owners, so when a change spans multiple services, they are all added automatically as blocking reviewers.</td>
       </td>
       <td><p>Access control defaults to per project.<p>Some teams use tools for broader-grained access control.<p>GitHub offers teams where you can say one team owns many projects and for things like approving requests that affect multiple repos.</td>
     </tr>
@@ -407,7 +407,7 @@ What we all really want is a VCS where repos can be combined and separated easil
 
 Prediction: just as DVCS killed off pre-DVCS practically overnight, the thing that will quickly kill off DVCS is a new type of VCS where you can trivially combine/separate repos and sections of repos as needed. You can assign, at the repo level, sub-repos to include in this one, get an atomic commit hash for the state of the whole thing, and where my VCS client doesn't need to actually download every linked repo, but where tools are available to act like I have.
 
-In a sense, we already have all of these features, in folders. You can combine and separate them, you can make a local folder mimic a folder on a remote system, and access its content without needing to download it all ahead of time. They just don't have any VCS features baked in. We've got {filesystems, network filesystems, and VCS}, and each of the three has some features the others would like.
+In a sense, we already have all of these features, in folders. You can combine and separate them, you can make a local folder mimic a folder on a remote system, and access its content without needing to download it all ahead of time. They just don't have any VCS features baked in. We've got {file systems, network file systems, and VCS}, and each of the three has some features the others would like.
 
 
 

@@ -1,0 +1,15 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "Bazel",
+        "buckconfig",
+        "CODEOWNERS",
+        "DVCS",
+        "Phabricator",
+        "PTSD",
+        "subproject",
+        "subprojects"
+    ],
+    "flagWords": []
+}
