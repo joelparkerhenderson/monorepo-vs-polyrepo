@@ -182,6 +182,11 @@ Key differences between monorepo and polyrepo, summarized from many proponents, 
       <td>Google wrote the tool “bazel”, which tracks internal dependencies by using directed acyclic graphs.</td>
       <td>Lyft wrote the tool “refactorator”, which automates making changes in multiple repos, including opening PRs, tracking status, etc.</td>
     </tr>
+    <tr>
+      <th>AI Agents</th>
+      <td>No special setup required for full codebase context.</td>
+      <td>Additional setup required to access the complete codebase across repositories.</td>
+    </tr>
   </tbody>
 </table>
 
