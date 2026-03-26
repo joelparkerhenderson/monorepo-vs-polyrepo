@@ -1,71 +1,71 @@
 # Monorepo vs. polyrepo
 
-<img src="README.png" alt="Objective" style="width: 100%;"/>
+<img src="README.png" alt="monorepo-polyrepo" style="width: 100%;"/>
 
 Monorepo means using one repository that contains many projects, and polyrepo means using a repository per project. This page discusses the similarities and differences, and has advice and opinions on both.
 
 Contents:
 
-* [Introduction](#introduction)
-  * [What is monorepo?](#what-is-monorepo)
-  * [What is polyrepo?](#what-is-polyrepo)
-* [Comparisons](#comparisons)
-  * [Key similarities](#key-similarities)
-  * [Key differences](#key-differences)
-* [Tooling](#tooling)
-  * [Bazel](#bazel)
-  * [moon](#moon)
-  * [Lerna](#lerna)
-  * [OctoLinker](#octolinker)
-  * [Nx](#nx)
-* [Monorepo scaling](#monorepo-scaling)
-  * [Monorepo scaling problem](#monorepo-scaling-problem)
-  * [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
-  * [Monorepo scaling metrics](#monorepo-scaling-metrics)
-* [Proponents of monorepo](#proponents-of-monorepo)
-  * [If components need to release together, then use a monorepo](#if-components-need-to-release-together-then-use-a-monorepo)
-  * [If components need to share common code, then use a monorepo](#if-components-need-to-share-common-code-then-use-a-monorepo)
-  * [I’ve found monorepos to be extremely valuable in an less-mature, high-churn codebase](#ive-found-monorepos-to-be-extremely-valuable-in-an-less-mature-high-churn-codebase)
-  * [A common mission](#a-common-mission)
-  * [Intricacies](#intricacies)
-  * [Use servers](#use-servers)
-  * [Clear vs. tribal](#clear-vs-tribal)
-* [Proponents of polyrepo](#proponents-of-polyrepo)
-  * [If tech's biggest names use a monorepo, should we do the same?](#if-techs-biggest-names-use-a-monorepo-should-we-do-the-same)
-  * [Coupling between unrelated projects](#coupling-between-unrelated-projects)
-  * [Visible organization](#visible-organization)
-* [Opinions about splitting](#opinions-about-splitting)
-  * [Splitting one repo is easier than combining multiple repos](#splitting-one-repo-is-easier-than-combining-multiple-repos)
-  * [Splitting may be too fine](#splitting-may-be-too-fine)
-* [Opinions about balances](#opinions-about-balances)
-  * [It's a social problem in how you manage boundaries](#its-a-social-problem-in-how-you-manage-boundaries)
-  * [Challenges of monorepo and polyrepo](#challenges-of-monorepo-and-polyrepo)
-  * [On-premise applications or desktop applications](#on-premise-applications-or-desktop-applications)
-* [Opinions about alternatives](#opinions-about-alternatives)
-  * [Could you get the best of both worlds by having a monorepo of submodules?](#could-you-get-the-best-of-both-worlds-by-having-a-monorepo-of-submodules)
-  * [Hybrid of "many repos"](#hybrid-of-many-repos)
-  * [Prediction of a new type of VCS](#prediction-of-a-new-type-of-vcs)
+- [Introduction](#introduction)
+  - [What is monorepo?](#what-is-monorepo)
+  - [What is polyrepo?](#what-is-polyrepo)
+- [Comparisons](#comparisons)
+  - [Key similarities](#key-similarities)
+  - [Key differences](#key-differences)
+- [Tooling](#tooling)
+  - [Bazel](#bazel)
+  - [moon](#moon)
+  - [Lerna](#lerna)
+  - [OctoLinker](#octolinker)
+  - [Nx](#nx)
+- [Monorepo scaling](#monorepo-scaling)
+  - [Monorepo scaling problem](#monorepo-scaling-problem)
+  - [Monorepo scaling mitigations](#monorepo-scaling-mitigations)
+  - [Monorepo scaling metrics](#monorepo-scaling-metrics)
+- [Proponents of monorepo](#proponents-of-monorepo)
+  - [If components need to release together, then use a monorepo](#if-components-need-to-release-together-then-use-a-monorepo)
+  - [If components need to share common code, then use a monorepo](#if-components-need-to-share-common-code-then-use-a-monorepo)
+  - [I’ve found monorepos to be extremely valuable in an less-mature, high-churn codebase](#ive-found-monorepos-to-be-extremely-valuable-in-an-less-mature-high-churn-codebase)
+  - [A common mission](#a-common-mission)
+  - [Intricacies](#intricacies)
+  - [Use servers](#use-servers)
+  - [Clear vs. tribal](#clear-vs-tribal)
+- [Proponents of polyrepo](#proponents-of-polyrepo)
+  - [If tech's biggest names use a monorepo, should we do the same?](#if-techs-biggest-names-use-a-monorepo-should-we-do-the-same)
+  - [Coupling between unrelated projects](#coupling-between-unrelated-projects)
+  - [Visible organization](#visible-organization)
+- [Opinions about splitting](#opinions-about-splitting)
+  - [Splitting one repo is easier than combining multiple repos](#splitting-one-repo-is-easier-than-combining-multiple-repos)
+  - [Splitting may be too fine](#splitting-may-be-too-fine)
+- [Opinions about balances](#opinions-about-balances)
+  - [It's a social problem in how you manage boundaries](#its-a-social-problem-in-how-you-manage-boundaries)
+  - [Challenges of monorepo and polyrepo](#challenges-of-monorepo-and-polyrepo)
+  - [On-premise applications or desktop applications](#on-premise-applications-or-desktop-applications)
+- [Opinions about alternatives](#opinions-about-alternatives)
+  - [Could you get the best of both worlds by having a monorepo of submodules?](#could-you-get-the-best-of-both-worlds-by-having-a-monorepo-of-submodules)
+  - [Hybrid of "many repos"](#hybrid-of-many-repos)
+  - [Prediction of a new type of VCS](#prediction-of-a-new-type-of-vcs)
 
 See:
 
-* [SCM at Facebook](https://github.com/joelparkerhenderson/source_code_management/scm_at_facebook.md)
-* [SCM at Google](https://github.com/joelparkerhenderson/source_code_management/scm_at_google.md)
-* [Why Google stores billions of lines of code in a single repository (2016) (acm.org)](https://dl.acm.org/citation.cfm?id=2854146)
-* [Scaling Mercurial at Facebook](https://code.facebook.com/posts/218678814984400/scaling-mercurial-at-facebook/)
-* [Cthulhu: Organizing Go Code in a Scalable Repo](https://blog.digitalocean.com/cthulhu-organizing-go-code-in-a-scalable-repo/)
-* [Why use a monoreop build tool?](https://mill-build.org/blog/2-monorepo-build-tool.html)
+- [SCM at Facebook](https://github.com/joelparkerhenderson/source_code_management/scm_at_facebook.md)
+- [SCM at Google](https://github.com/joelparkerhenderson/source_code_management/scm_at_google.md)
+- [Why Google stores billions of lines of code in a single repository (2016) (acm.org)](https://dl.acm.org/citation.cfm?id=2854146)
+- [Scaling Mercurial at Facebook](https://code.facebook.com/posts/218678814984400/scaling-mercurial-at-facebook/)
+- [Cthulhu: Organizing Go Code in a Scalable Repo](https://blog.digitalocean.com/cthulhu-organizing-go-code-in-a-scalable-repo/)
+- [Why use a monoreop build tool?](https://mill-build.org/blog/2-monorepo-build-tool.html)
 
 Posts with Hacker News discussions:
 
-* [The Ingredients of a Productive Monorepo](https://blog.swgillespie.me/posts/monorepo-ingredients/) & [discussion](https://news.ycombinator.com/item?id=44086917)
-* [Monorepos: Please don’t! - By Matt Klein](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b) & [discussion](https://news.ycombinator.com/item?id=18808909)
-* [Monorepos and the Fallacy of Scale - By Paulus Esterhazy](https://presumably.de/monorepos-and-the-fallacy-of-scale.html) & [discussion](https://news.ycombinator.com/item?id=18855660)
+- [The Ingredients of a Productive Monorepo](https://blog.swgillespie.me/posts/monorepo-ingredients/) & [discussion](https://news.ycombinator.com/item?id=44086917)
+- [Monorepos: Please don’t! - By Matt Klein](https://medium.com/@mattklein123/monorepos-please-dont-e9a279be011b) & [discussion](https://news.ycombinator.com/item?id=18808909)
+- [Monorepos and the Fallacy of Scale - By Paulus Esterhazy](https://presumably.de/monorepos-and-the-fallacy-of-scale.html) & [discussion](https://news.ycombinator.com/item?id=18855660)
 
 Credits:
 
-* Opinions and comments on this page are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity.
+- Opinions and comments on this page are thanks to many people on various discussion websites, such as Hacker News, and lightly edited for clarity.
 
-* If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
+- If you're the author of an opinion here, and would like to attribute it, or explain more, please let us know and we'll give you commit access.
 
 ## Introduction
 
@@ -73,35 +73,33 @@ Credits:
 
 Monorepo is a nickname that means "using one repository for the source code management version control system".
 
-* A monorepo architecture means using one repository, rather than multiple repositories.
+- A monorepo architecture means using one repository, rather than multiple repositories.
 
-* For example, a monorepo can use one repo that contains a directory for a web app project, a directory for a mobile app project, and a directory for a server app project. 
+- For example, a monorepo can use one repo that contains a directory for a web app project, a directory for a mobile app project, and a directory for a server app project.
 
-* Monorepo is also known as one-repo or uni-repo.
+- Monorepo is also known as one-repo or uni-repo.
 
 ### What is polyrepo?
 
-Polyrepo is a nickname that means "using multiple repositories for the source code management version control system". 
-  
-* A polyrepo architecture means using multiple repositories, rather than one repository.
+Polyrepo is a nickname that means "using multiple repositories for the source code management version control system".
 
-* For example, a polyrepo can use a repo for a web app project, a repo for a mobile app project, and a repo for a server app project. 
+- A polyrepo architecture means using multiple repositories, rather than one repository.
 
-* Polyrepo is also known as many-repo or multi-repo.
+- For example, a polyrepo can use a repo for a web app project, a repo for a mobile app project, and a repo for a server app project.
+
+- Polyrepo is also known as many-repo or multi-repo.
 
 ## Comparisons
-
 
 ### Key similarities
 
 Key similarities between monorepo and polyrepo:
 
-  * Both architectures ultimately track the same source code files, and do it by using source code management (SCM) version control systems (VCS) such as git or mercurial. 
-  
-  * Both architectures are proven successful for projects of all sizes.
+- Both architectures ultimately track the same source code files, and do it by using source code management (SCM) version control systems (VCS) such as git or mercurial.
 
-  * Both architectures are straightforward to implement using any typical SCM VCS, up to a scaling limit.
+- Both architectures are proven successful for projects of all sizes.
 
+- Both architectures are straightforward to implement using any typical SCM VCS, up to a scaling limit.
 
 ### Key differences
 
@@ -243,17 +241,16 @@ integrations.
 Monorepo scaling becomes a problem when a typical developer can't work well with
 the code by using typical tools such as vanilla git.
 
-* Monorepo scaling eventually becomes impractical in terms of space: when a
+- Monorepo scaling eventually becomes impractical in terms of space: when a
   monorepo grows to have more data than fits on a developer's laptop, then the
   developer cannot fetch the monorepo, and it may be impractical to obtain to
   more storage space.
 
-* Monorepo scaling eventually becomes impractical in terms of time: when a
+- Monorepo scaling eventually becomes impractical in terms of time: when a
   monorepo grows, then a complete file transfer takes more time, and in
   practice, there are other operations that also take more time, such as git
   pruning, git repacking.
-  
-* A monorepo may grow so large contain so many projects that it takes too much
+- A monorepo may grow so large contain so many projects that it takes too much
   mental effort to work across projects, such as for searching, editing, and
   isolating changes.
 
@@ -261,12 +258,12 @@ the code by using typical tools such as vanilla git.
 
 Monorepo scaling can be improved by:
 
-* Some type of virtual file system (VFS) that allows a portion of the code to be
+- Some type of virtual file system (VFS) that allows a portion of the code to be
   present locally. This might be accomplished via a proprietary VCS like
   Perforce which natively operates this way, or via Google’s “G3” internal
   tooling, or via Microsoft’s GVFS.
 
-* Sophisticated source code indexing/searching/discovery capabilities as a
+- Sophisticated source code indexing/searching/discovery capabilities as a
   service. This is because a typical developer is not going to have all the
   source code locally, in a searchable state, using vanilla tooling.
 
@@ -275,16 +272,16 @@ Monorepo scaling can be improved by:
 Monorepo scaling seems to become an issue, in practice, at approximately these
 kinds of metrics:
 
-* 10-100 developers writing code full time.
+- 10-100 developers writing code full time.
 
-* 10-100 projects in progress at the same time.
+- 10-100 projects in progress at the same time.
 
-* 10-100 packaging processes during the same time period, such as a daily release.
+- 10-100 packaging processes during the same time period, such as a daily release.
 
-* 1K-10K versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
+- 1K-10K versioned dependencies, such as Node modules, Python packages, Ruby gems, etc.
 
-* 1M-10M lines of code
-  
+- 1M-10M lines of code
+
 ## Proponents of monorepo
 
 ### If components need to release together, then use a monorepo
@@ -367,7 +364,7 @@ must be tremendous, and we should all do the same, right? Wrong!
 Why? Because, at scale, a monorepo must solve every problem that a polyrepo must
 solve, with the downside of encouraging tight coupling, and the additional
 herculean effort of tackling VCS scalability.
-  
+
 Thus, in the medium to long term, a monorepo provides zero organizational
 benefits, while inevitably leaving some of an organization’s best engineers with
 a wicked case of PTSD (manifested via drooling and incoherent mumbling about git
@@ -414,7 +411,7 @@ You can split big repositories into smaller ones quite easily (in Git anyway).
 If you only need to do this once, then subtree will do the job, even retaining
 all your history if you want. As another way to split, you can duplicate the
 repo and pull trees out of each dupe in normal commits.
-  
+
 But combining small repositories together into a bigger repo is a lot harder.
 
 So start out with a monorepo. Only split a monorepo into multiple smaller
@@ -424,8 +421,8 @@ repositories when you're clear that it really makes sense.
 
 My problem with polyrepo is that often organizations end up splitting things too
 finely, and now I'm unable to make a single commit to introduce a feature
-because my changes have to live across several repositories. 
-  
+because my changes have to live across several repositories.
+
 This makes code review more annoying because you have to tab back and forth to
 see all the context.
 
@@ -454,8 +451,8 @@ surprise.
 ### Challenges of monorepo and polyrepo
 
 My last 2 jobs have been working on developer productivity for 100+ developer
-organizations. One organization uses monorepo, one organization uses polyrepo. 
-  
+organizations. One organization uses monorepo, one organization uses polyrepo.
+
 Neither really seems to result in less work, or a better experience. But I've
 found that your choice just dictates what type of problems you have to solve.
 
@@ -490,7 +487,7 @@ after that.
 
 ## Opinions about alternatives
 
-### Could you get the best of both worlds by having a monorepo of submodules? 
+### Could you get the best of both worlds by having a monorepo of submodules?
 
 Code would live in separate repos, but references would be declared in the
 monorepo. Check-ins and rollbacks to the monorepo would trigger CI.
